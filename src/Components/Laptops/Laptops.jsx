@@ -1,7 +1,7 @@
 import React from "react";
 
 const Laptops = () => {
-  return <div>This Is Laptops</div>;
+  return <div className="text-2xl text-center  my-12">This Is Laptops</div>;
 };
 
 export default Laptops;

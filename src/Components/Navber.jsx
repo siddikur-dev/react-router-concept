@@ -1,10 +1,14 @@
 import React from "react";
+import "../App.css";
+import { NavLink } from "react-router";
 
 const Navber = () => {
   return (
-    <div>
-      <h2>This is Navber</h2>
-    </div>
+    <nav className="flex justify-center text-2xl gap-5">
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/app">App</NavLink>
+      <NavLink to="/laptops">Laptops</NavLink>
+    </nav>
   );
 };
 
