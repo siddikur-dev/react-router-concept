@@ -8,6 +8,8 @@ const Navber = () => {
       <NavLink to="/">Home</NavLink>
       <NavLink to="/app">App</NavLink>
       <NavLink to="/laptops">Laptops</NavLink>
+      <NavLink to="/users">Users</NavLink>
+      <NavLink to="/users2">Users2</NavLink>
     </nav>
   );
 };

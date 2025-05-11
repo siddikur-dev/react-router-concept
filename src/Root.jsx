@@ -10,7 +10,9 @@ const Root = () => {
       <Navber></Navber>
       <div className="flex  gap-9 text-center">
         <Asibar></Asibar>
-        <Outlet></Outlet>
+        <div className="flex flex-col">
+          <Outlet></Outlet>
+        </div>
       </div>
       <Footer></Footer>
     </div>
