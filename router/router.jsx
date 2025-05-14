@@ -8,6 +8,7 @@ import { Suspense } from "react";
 import Posts from "../src/Components/Posts/Posts";
 import UserDetails from "../src/Components/Users/UserDetails";
 import PostDetails from "../src/Components/Posts/PostDetails";
+import Error from "../src/Components/Error/Error";
 
 // const users2Promise = fetch("https://jsonplaceholder.typicode.com/users").then(
 //   (res) => res.json()
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
         Component: UserDetails,
       },
     ],
+  },
+  {
+    path: "*",
+    Component: Error,
   },
 ]);
 
