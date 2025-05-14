@@ -5,12 +5,13 @@ import Home from "../src/Components/Homde/Home";
 import Laptops from "../src/Components/Laptops/Laptops";
 import Users from "../src/Components/Users/Users";
 import { Suspense } from "react";
-import Users2 from "../src/Components/Users2/Users2";
+import Posts from "../src/Components/Posts/Posts";
 import UserDetails from "../src/Components/Users/UserDetails";
+import PostDetails from "../src/Components/Posts/PostDetails";
 
-const users2Promise = fetch("https://jsonplaceholder.typicode.com/users").then(
-  (res) => res.json()
-);
+// const users2Promise = fetch("https://jsonplaceholder.typicode.com/users").then(
+//   (res) => res.json()
+// );
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,23 +35,20 @@ const router = createBrowserRouter([
         Component: Users,
       },
       {
-        path: "/users2",
-        element: (
-          <Suspense
-            fallback={
-              <span>
-                <div class="min-h-screen flex items-center justify-center">
-                  <div class="w-20 h-20 border-4 border-gray-300 border-t-4 border-t-blue-400 rounded-full animate-spin"></div>
-                </div>
-              </span>
-            }
-          >
-            <Users2 users2Promise={users2Promise}></Users2>
-          </Suspense>
-        ),
+        path: "/posts",
+        loader: () => fetch("https://jsonplaceholder.typicode.com/posts"),
+        Component: Posts,
+      },
+      {
+        path: "/posts/:postId",
+        loader: ({ params }) =>
+          fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`),
+        Component: PostDetails,
       },
       {
         path: "users/:userId",
+        loader: ({ params }) =>
+          fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
         Component: UserDetails,
       },
     ],

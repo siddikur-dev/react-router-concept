@@ -1,7 +1,8 @@
 import React from "react";
+import { Link, Links, NavLink } from "react-router";
 
 const User = ({ user }) => {
-  const { name, email } = user;
+  const { id, name, email } = user;
   //   console.log(user);
 
   return (
@@ -9,12 +10,13 @@ const User = ({ user }) => {
       <h2>{name}</h2>
       <h2>{email}</h2>
       <div className="my-2">
-        <button
+        <Link
+          to={`/users/${id}`}
           type="button"
           className="px-5 py-2  rounded-2xl bg-gray-800 text-gray-100 "
         >
           View Details
-        </button>
+        </Link>
       </div>
     </div>
   );
